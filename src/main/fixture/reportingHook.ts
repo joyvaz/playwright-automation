@@ -52,7 +52,6 @@ AfterAll(async function () {
         fs.renameSync(htmlReportSource, htmlReportDestination);
         fs.renameSync(jsonReportSource, jsonReportDestination);
         fs.renameSync(logFileSource, logFileDestination);
-        logMessage(`Reports moved successfully to ${reportsDir}`);
         await Promise.resolve();
     } catch (err) {
         logMessage(`Failed to move reports: ${(err as Error).message}`, "error")
