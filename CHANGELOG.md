@@ -2,6 +2,9 @@
 
 All noteable changes to this repo will be documented in this file.
 
+## [1.2.0]
+- Added Sample feture file and step definitions for accessibility testing
+
 ## [1.1.0]
 - Added Sample feture file and step definitions for one more sample application
 - Added example of API mocked
