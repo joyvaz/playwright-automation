@@ -40,18 +40,18 @@ After(async function (this: CustomWorld, scenario) {
 AfterAll(async function () {
     console.log(`All scenarios completed. Moving reports to ${reportsDir}`);
     try {
-        const htmlReportSource = path.resolve(__dirname, '../../..', CONSTANTS.REPORT_DIR, `${CONSTANTS.REPORT_BASE_NAME}.html`);
+        // const htmlReportSource = path.resolve(__dirname, '../../..', CONSTANTS.REPORT_DIR, `${CONSTANTS.REPORT_BASE_NAME}.html`);
         const htmlReportDestination = path.resolve(reportsDir, `${CONSTANTS.REPORT_BASE_NAME}_${GLOBALS.runId}.html`);
-        const jsonReportSource = path.resolve(__dirname, '../../..', CONSTANTS.REPORT_DIR, `${CONSTANTS.REPORT_BASE_NAME}.json`);
+        // const jsonReportSource = path.resolve(__dirname, '../../..', CONSTANTS.REPORT_DIR, `${CONSTANTS.REPORT_BASE_NAME}.json`);
         const jsonReportDestination = path.resolve(reportsDir, `${CONSTANTS.REPORT_BASE_NAME}_${GLOBALS.runId}.json`);
-        const logFileSource = path.resolve(__dirname, '../../..', CONSTANTS.REPORT_DIR, `${CONSTANTS.REPORT_BASE_NAME}.log`);
+        // const logFileSource = path.resolve(__dirname, '../../..', CONSTANTS.REPORT_DIR, `${CONSTANTS.REPORT_BASE_NAME}.log`);
         const logFileDestination = path.resolve(reportsDir, `${CONSTANTS.REPORT_BASE_NAME}_${GLOBALS.runId}.log`);
         ensureDir(htmlReportDestination);
         ensureDir(jsonReportDestination);
         ensureDir(logFileDestination);
-        fs.renameSync(htmlReportSource, htmlReportDestination);
-        fs.renameSync(jsonReportSource, jsonReportDestination);
-        fs.renameSync(logFileSource, logFileDestination);
+        // fs.renameSync(htmlReportSource, htmlReportDestination);
+        // fs.renameSync(jsonReportSource, jsonReportDestination);
+        // fs.renameSync(logFileSource, logFileDestination);
         await Promise.resolve();
     } catch (err) {
         logMessage(`Failed to move reports: ${(err as Error).message}`, "error")

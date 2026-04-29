@@ -1,12 +1,13 @@
 {
   "name": "playwright-automation-bdd",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "BDD Playwright Framework with Typescript",
   "main": "index.js",
   "scripts": {
     "test": "npx playwright test",
     "npm test bdd": "cucumber-js test",
     "smoke-test": "cross-env TS_NODE_PROJECT=tsconfig.json cucumber-js src/test/features --tags @smoke",
+    "accessibility-test": "cross-env TS_NODE_PROJECT=tsconfig.json cucumber-js src/test/features --tags @accessibility",
     "test-parallel": "ts-node -e \"require(çhild_process').execSync('cucumber-js src/test/features --parallel 2 --require-module ts-node/register --require src/test/support/hooks.ts --tags' + process.args[1], {stdio: 'inherit'})\"",
     "test-by-tags": "ts-node -e \"require(çhild_process').execSync('cucumber-js src/test/features --require-module ts-node/register --require src/test/support/hooks.ts --tags' + process.args[1], {stdio: 'inherit'})\"",
     "test-with-params": "set TEST_ENV=%ENV% && set BROWSER=%BROWSER% && set TAGS=%TAGS% && npx cucumber-js src/test/features --require-module ts-node/register --require src/test/support/hooks.ts --tags %TAGS%"
@@ -41,6 +42,7 @@
     "@playwright/test": "^1.57.0",
     "@types/node": "^25.0.3",
     "@types/pngjs": "6.0.5",
+    "@axe-core/playwright": "4.11.1",
     "@typescript-eslint/eslint-plugin": "^8.51.0",
     "@typescript-eslint/parser": "^8.51.0",
     "cross-env": "10.1.0",

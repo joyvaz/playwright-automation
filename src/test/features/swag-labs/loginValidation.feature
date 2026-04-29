@@ -1,4 +1,4 @@
-@smoke
+@smoke 
 Feature: Validate Swag Labs login
 
     Validate user login functionality of Swag Labs application with different credentials.
@@ -11,4 +11,3 @@ Feature: Validate Swag Labs login
         Examples:
             | userType      |
             | standard_user |
-            # | standard_user |nn
