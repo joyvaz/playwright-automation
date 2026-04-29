@@ -1,4 +1,4 @@
-@smoke @accessibility
+@accessibility
 Feature: Validate Swag Labs Accessibility Compliance
 
     Ensure the Swag Labs login process and dashboard meet accessibility standards for all user types, including checks for compliance with accessibility guidelines.
