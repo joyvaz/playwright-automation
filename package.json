@@ -5,12 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "npx playwright test",
-    "npm test bdd": "cucumber-js test",
+    "bdd": "cross-env TS_NODE_PROJECT=tsconfig.json cucumber-js src/test/features",
     "smoke-test": "cross-env TS_NODE_PROJECT=tsconfig.json cucumber-js src/test/features --tags @smoke",
     "accessibility-test": "cross-env TS_NODE_PROJECT=tsconfig.json cucumber-js src/test/features --tags @accessibility",
-    "test-parallel": "ts-node -e \"require(çhild_process').execSync('cucumber-js src/test/features --parallel 2 --require-module ts-node/register --require src/test/support/hooks.ts --tags' + process.args[1], {stdio: 'inherit'})\"",
-    "test-by-tags": "ts-node -e \"require(çhild_process').execSync('cucumber-js src/test/features --require-module ts-node/register --require src/test/support/hooks.ts --tags' + process.args[1], {stdio: 'inherit'})\"",
-    "test-with-params": "set TEST_ENV=%ENV% && set BROWSER=%BROWSER% && set TAGS=%TAGS% && npx cucumber-js src/test/features --require-module ts-node/register --require src/test/support/hooks.ts --tags %TAGS%"
+    "test-by-tags": "cross-env TS_NODE_PROJECT=tsconfig.json cucumber-js src/test/features --require-module ts-node/register --require src/test/support/hooks.ts --tags \"$TAGS\"",
+    "test-parallel": "cross-env TS_NODE_PROJECT=tsconfig.json cucumber-js src/test/features --parallel 2 --require-module ts-node/register --require src/test/support/hooks.ts --tags \"$TAGS\"",
+    "test-with-params": "cross-env TS_NODE_PROJECT=tsconfig.json TEST_ENV=$ENV BROWSER=$BROWSER cucumber-js src/test/features --require-module ts-node/register --require src/test/support/hooks.ts --tags \"$TAGS\""
   },
   "keywords": [
     "playwright",
