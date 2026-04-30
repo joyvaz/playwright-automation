@@ -6,11 +6,9 @@ pipeline {
     }
 
     parameters {
-        string(
-            name: 'CUCUMBER_TAGS',
-            defaultValue: '@smoke',
-            description: 'Enter Cucumber tags (availabe Tags: @smoke ; @jsonPlaceholder ; @accessibility)'
-        )
+        string(name: 'TAGS', defaultValue: '@smoke', description: 'Enter Cucumber tags (availabe Tags: @smoke ; @jsonPlaceholder ; @accessibility)'),
+        list(name: 'ENV', choices: ['stage', 'alpha', 'pre-prod'], description: 'Select Environment'),
+        list(name: 'BROWSER', choices: ['chromium', 'firefox', 'chromium-headless', 'chromium-headless-with-globals', 'chromium-webkit', 'chromium-webkit-headless', 'chromium-webkit-headless-with-globals'], description: 'Select Browser')
     }
 
     environment {
@@ -33,9 +31,8 @@ pipeline {
         stage('Run Tests') {
             steps {
                 sh """
-                echo "******* Running tests with tags: ${CUCUMBER_TAGS} *******"
-                echo "Running npm run smoke-test..."
-                npm run smoke-test
+                echo "Running with TAGS=${TAGS}, ENV=${ENV}, BROWSER=${BROWSER}"
+                TAGS="${TAGS}" ENV="${ENV}" BROWSER="${BROWSER}" npm run test-with-params
                 """
             }
         }
