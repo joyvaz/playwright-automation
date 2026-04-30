@@ -6,9 +6,9 @@ pipeline {
     }
 
     parameters {
-        string(name: 'TAGS', defaultValue: '@smoke', description: 'Enter Cucumber tags (availabe Tags: @smoke ; @jsonPlaceholder ; @accessibility)'),
-        list(name: 'ENV', choices: ['stage', 'alpha', 'pre-prod'], description: 'Select Environment'),
-        list(name: 'BROWSER', choices: ['chromium', 'firefox', 'chromium-headless', 'chromium-headless-with-globals', 'chromium-webkit', 'chromium-webkit-headless', 'chromium-webkit-headless-with-globals'], description: 'Select Browser')
+        string(name: 'TAGS', defaultValue: '@smoke', description: 'Enter Cucumber tags (availabe Tags: @smoke ; @jsonPlaceholder ; @accessibility)')
+        choice(name: 'ENV', choices: ['DEV', 'STAGE', 'PROD'], description: 'Select Environment')
+        choice(name: 'BROWSER', choices: ['chromium', 'firefox', 'chromium-headless', 'chromium-headless-with-globals', 'chromium-webkit', 'chromium-webkit-headless', 'chromium-webkit-headless-with-globals'], description: 'Select Browser')
     }
 
     environment {
